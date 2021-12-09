@@ -1,0 +1,7 @@
+Main: IO<Unit>
+  IO {
+    get fmc = IO.get_file("test.fmcm")
+    let defs = Kind.Core.parse_defs(fmc)
+    Kind.Core.Check(defs, Map.to_list!(defs))
+    return unit
+  }
